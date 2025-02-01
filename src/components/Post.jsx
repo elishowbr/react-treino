@@ -1,17 +1,18 @@
 import styles from "./Post.module.css";
 import { Avatar } from "./Avatar";
 
-export function Post() {
+export function Post(props) {
   return (
+
     <article className={styles.post}>
       <header>
         <div className={styles.author}>
 
-          <Avatar linkImg="https://github.com/gustavuhh1.png" />
+          <Avatar linkImg={props.imgAuthor} />
 
           <div className={styles.authorInfo}>
-            <strong>Gustavinho da T.I</strong>
-            <span>T.I Worker</span>
+            <strong>{props.authorName}</strong>
+            <span>{props.authorJob}</span>
           </div>
 
         </div>
@@ -23,11 +24,12 @@ export function Post() {
       </header>
 
       <div className={styles.content}>
-        <p>Odiando a Rannah</p>
-        <p>Como que pode</p>
-        <p><a href="#">#BOLADO</a></p>
+        <p>{props.comment1}</p>
+        <p>{props.comment2}</p>
+        <p><a href="#">#{props.comment3}</a></p>
       </div>
 
     </article>
+
   );
 }
