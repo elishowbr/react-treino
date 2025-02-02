@@ -23,12 +23,12 @@ export function App() {
           />
 
           <Post
-            authorName='Diego Sampaio'
-            authorJob='DEV FULLSTACK'
-            imgAuthor='https://github.com/elishowbr.png'
-            comment1="Indo cada vez mais longe!"
-            comment2="Isso está muito divertido!"
-            comment3='EHNOIS'
+            authorName='Abelardo Júnior'
+            authorJob='Desenvolvedor Front-End'
+            imgAuthor='https://github.com/abelardojr0.png'
+            comment1="Cadê o salomão aqui?"
+            comment2="Quiser chegar lá fora pra jogar um pouquinho... kkkk"
+            comment3='SENAI'
           />
           
         </main>
