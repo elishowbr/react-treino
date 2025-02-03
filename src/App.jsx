@@ -17,9 +17,9 @@ export function App() {
             authorName='Gustavinho da T.I'
             authorJob='T.I Worker'
             imgAuthor='https://github.com/gustavuhh1.png'
-            comment1="Rock demais aprender isso"
-            comment2="Estou chegando a novos patamares!"
-            comment3='TMJ'
+            comment1="Queria um emprego"
+            comment2="To doidin pra fazer um dinheiro oh kkkk"
+            comment3='me empregue'
           />
 
           <Post

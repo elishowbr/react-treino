@@ -3,7 +3,7 @@
   border-radius: 8px;
   padding: 2.5rem;
 
-  &>header {
+  & > header {
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -108,5 +108,9 @@
   .commentForm:focus-within footer {
     visibility: visible;
     max-height: none;
+  }
+
+  .commentList {
+    margin-top: 1.5rem;
   }
 }
