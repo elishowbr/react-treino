@@ -4,9 +4,10 @@ import { Comment } from "./Comment";
 import { format, formatDistanceToNow } from "date-fns";
 import ptBR from 'date-fns/locale/pt-BR'
 
-
 const comments = [
-  1, 2, 3
+  { pathImg : "https://github.com/elishowbr.png", commentAuthor : "Wil Wil Victor" , comment : "É, peãozin kkk"},
+  { pathImg : "https://i1.sndcdn.com/artworks-kFGib4jDIv7eajLN-qmKWHw-t500x500.jpg", commentAuthor : "Rannah" , comment : "KKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKK"},
+  { pathImg : "https://oyster.ignimgs.com/mediawiki/apis.ign.com/lego-batman-2-dc-super-heroes/9/95/Clayface.jpg", commentAuthor : "Pedro Salomão" , comment : "Éégua viado kkkk"}
 ]
 
 export function Post({ author, publishedAt, content }) {
@@ -58,7 +59,11 @@ export function Post({ author, publishedAt, content }) {
       <div className="commentList">
         {comments.map(comment => {
           return (
-            <Comment />
+            <Comment 
+            profilePhotoLink={comment.pathImg}
+            commentAuthor={comment.commentAuthor}
+            comment={comment.comment}
+            />
           )
         })}
       </div>
