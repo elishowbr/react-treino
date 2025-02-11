@@ -11,7 +11,10 @@ export function Sidebar() {
       />
 
       <div className={styles.profile}>
-        <Avatar imgLink="https://github.com/elishowbr.png" />
+        <Avatar
+          imgLink="https://github.com/elishowbr.png"
+          hasBorder
+        />
         <strong>Wil Wil Victor</strong>
         <span>Web Developer</span>
       </div>

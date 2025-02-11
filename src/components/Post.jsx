@@ -1,31 +1,48 @@
 import styles from "./Post.module.css";
 import { Avatar } from "./Avatar";
 import { Comment } from "./Comment";
+import { format, formatDistanceToNow } from "date-fns";
+import ptBR from 'date-fns/locale/pt-BR'
 
-export function Post(props) {
+
+const comments = [
+  1, 2, 3
+]
+
+export function Post({ author, publishedAt, content }) {
+  const publishedDateString = format(publishedAt, "'d' de 'LLLL', às 'HH:mm'h", { locale: ptBR })
+  const publishedDataToNow = formatDistanceToNow(publishedAt, {
+    locale: ptBR,
+    addSuffix: true
+  })
   return (
     <article className={styles.post}>
       <header>
         <div className={styles.author}>
-          <Avatar imgLink={props.imgAuthor} />
+          <Avatar
+            hasBorder
+            imgLink={author.avatarUrl}
+          />
 
           <div className={styles.authorInfo}>
-            <strong>{props.authorName}</strong>
-            <span>{props.authorJob}</span>
+            <strong>{author.name}</strong>
+            <span>{author.role}</span>
           </div>
         </div>
 
-        <time title="02  de fevereiro de 2024" dateTime="2024-02-02 15:30:00">
-          Publicado há 1h
+        <time title="02  de fevereiro de 2024" dateTime={publishedAt.toISOString()}>
+          {publishedDataToNow}
         </time>
       </header>
 
       <div className={styles.content}>
-        <p>{props.comment1}</p>
-        <p>{props.comment2}</p>
-        <p>
-          <a href="#">#{props.comment3}</a>
-        </p>
+        {content.map(comment => {
+          if (comment.type == 'text') {
+            return <p>{comment.content}</p>
+          } else if (comment.type == 'link') {
+            return <p><a href="#">{comment.content}</a></p>
+          }
+        })}
       </div>
 
       <form className={styles.commentForm}>
@@ -39,9 +56,11 @@ export function Post(props) {
       </form>
 
       <div className="commentList">
-        <Comment />
-        <Comment />
-        <Comment />
+        {comments.map(comment => {
+          return (
+            <Comment />
+          )
+        })}
       </div>
     </article>
   );
