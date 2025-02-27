@@ -1,12 +1,24 @@
 import styles from "./Comment.module.css";
 import { Avatar } from "./Avatar";
 import { ThumbsUp, Trash } from "phosphor-react";
+import { useState } from "react";
 
 export function Comment({ profilePhotoLink, comment, commentAuthor, onDeleteComment }) {
+
+  const [likeCount, setLikeCount] = useState(0)
 
   function handleDeleteComment(content) {
     onDeleteComment(comment)
   }
+
+  function handleLikeComment() {
+    setLikeCount((state) => {
+      return state + 1;
+    });
+  }
+
+  // Sempre que você for atualizar uma informação que depende do valor que ela tinha anteriormente (depende dela mesmo)
+  // É bom atualizar em tempo real utilizando essa arrow function acima
 
   return (
     <div className={styles.comment}>
@@ -34,9 +46,9 @@ export function Comment({ profilePhotoLink, comment, commentAuthor, onDeleteComm
         </div>
 
         <footer>
-          <button>
+          <button onClick={handleLikeComment}>
             <ThumbsUp size={24} />
-            Aplaudir <span>20</span>
+            Aplaudir <span>{likeCount}</span>
           </button>
         </footer>
       </div>
