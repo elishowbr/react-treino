@@ -11,12 +11,12 @@ const posts = [
     author: {
       avatarUrl: 'https://github.com/gustavuhh1.png',
       name: 'Gustavo Martins',
-      role: 'DESEMPREGADO'
+      role: 'Técnico em Suporte T.I'
     },
     content: [
-      { type: "text", content: "Queria um emprego" },
-      { type: "text", content: "To doidin pra fazer um dinheiro oh kkk" },
-      { type: "link", content: "Me empregue" },
+      { type: "text", content: "Vai tomar no teu cu rannah" },
+      { type: "text", content: "AIAIAIAIAI TO DOIDIN AQUI VIADO" },
+      { type: "link", content: "KIMBERLY PELO AMOR DE DEUS ME DIZ ONDE TU TÁ" },
     ],
     publishedAt: new Date('2025-02-03 20:00:00')
   },
@@ -44,12 +44,12 @@ export function App(props) {
         <Sidebar />
         <main>
 
-          {posts.map(post => {
+          {posts.map(({author, content, publishedAt}) => {
             return (
               <Post
-                author={post.author}
-                content={post.content}
-                publishedAt={post.publishedAt}
+                author={author}
+                content={content}
+                publishedAt={publishedAt}
               />
             )
           })}
